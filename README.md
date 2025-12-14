@@ -18,7 +18,7 @@ The goal of this MVP is to demonstrate solid frontend architecture, type safety,
 
 ## 🚀 Live Demo
 
-[See live demo](https://vending-machine-eta-ochre.vercel.app) - Deployed this project on [Vercel](https://vercel.com).
+[See live demo](https://shipflow-tau.vercel.app/) - Deployed this project on [Vercel](https://vercel.com).
 
 ## 🧰 Tech Stack
 
