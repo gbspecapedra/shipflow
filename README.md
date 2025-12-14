@@ -56,7 +56,7 @@ The goal of this MVP is to demonstrate solid frontend architecture, type safety,
 - Carrier rate selection (USPS)
 - Purchase label flow
 - **PDF label preview**
-- Clear success & error states
+- Clear loading and success states during label generation
 - Scalable, step-based UI flow
 - Unit-tested core domain logic
 
@@ -107,6 +107,7 @@ This keeps the app easy to extend without creating hidden coupling.
 - Authentication is out of scope
 - EasyPost API keys are assumed to be configured via environment variables
 - This is a frontend-focused MVP, not a full logistics system
+- The MVP focuses on the happy path for label creation and purchase
 
 ## 🔮 What I’d Do Next
 
@@ -120,6 +121,7 @@ If this were extended beyond the MVP:
 - Add E2E tests (Playwright)
 - Improve accessibility audits
 - Add server-side caching for rates
+- Add explicit error and retry handling for failed label purchases
 
 ## 📝 License
 
