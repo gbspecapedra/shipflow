@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">ShipFlow</p>
+<p align="center">Shipping Label Creator</p>
 
-## Getting Started
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/gbspecapedra/shipflow">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/gbspecapedra/shipflow">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/gbspecapedra/shipflow">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gbspecapedra/shipflow">
+  <img alt="Github license" src="https://img.shields.io/github/license/gbspecapedra/shipflow">
+</p>
 
-First, run the development server:
+## 💬 Project
+
+A minimal shipping label creation flow built with **Next.js App Router**, focused on correctness, scalability, and a clean user experience.  
+This project simulates creating and purchasing **USPS shipping labels** using the **EasyPost API**, including address validation, rate selection, label purchase, and PDF preview.
+
+The goal of this MVP is to demonstrate solid frontend architecture, type safety, and clear separation of concerns — not to be a full production-ready shipping platform.
+
+## 🚀 Live Demo
+
+[See live demo](https://vending-machine-eta-ochre.vercel.app) - Deployed this project on [Vercel](https://vercel.com).
+
+## 🧰 Tech Stack
+
+### Core
+
+- **Next.js 16 (App Router)**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **shadcn/ui**
+
+### Forms & Validation
+
+- **react-hook-form**
+- **Zod** (schema-first validation)
+
+### API & Domain
+
+- **EasyPost API** (shipping abstraction)
+- Typed API routes (`app/api/*`)
+
+### Testing
+
+- **Vitest**
+- Focused unit tests for:
+  - Zod schemas
+  - EasyPost mappers
+  - Key UI logic (Stepper)
+
+## 📦 Features
+
+- US-only **From / To address** input with validation
+- Address verification flow (simulated via API)
+- Parcel details (dimensions & weight)
+- Carrier rate selection (USPS)
+- Purchase label flow
+- **PDF label preview**
+- Clear success & error states
+- Scalable, step-based UI flow
+- Unit-tested core domain logic
+
+## ℹ️ How To Use
+
+To clone and run this application, you'll need [Git](https://git-scm.com), [NPM](https://www.npmjs.com/package/npm), [Node.js](https://nodejs.org/en/) >= 23.6.1 and an EasyPost API key (test key is sufficient). From your command line:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+$ git clone https://github.com/gbspecapedra/shipflow.git
+
+# Go into the repository
+$ cd shipflow
+
+# Install dependencies
+$ npm install
+
+# Run the development server
+$ npm run dev
+
+# Navigate to http://localhost:3000
+# The app will automatically reload if you change any of the source files.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file in the root of the project:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+EASYPOST_API_KEY=your_test_api_key_here
+```
 
-## Learn More
+## 🧠 Architecture Overview
 
-To learn more about Next.js, take a look at the following resources:
+This project intentionally separates responsibilities:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Schemas (Zod): Validate and protect all external/user input.
+- Mappers: Convert validated domain data into EasyPost-compatible payloads.
+- UI Components: Stateless and focused on presentation.
+- Flow Orchestration: Step-based logic lives in the page layer, not in components.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This keeps the app easy to extend without creating hidden coupling.
 
-## Deploy on Vercel
+## 📌 Assumptions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Only US addresses are supported
+- Label format is PDF only
+- Authentication is out of scope
+- EasyPost API keys are assumed to be configured via environment variables
+- This is a frontend-focused MVP, not a full logistics system
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔮 What I’d Do Next
+
+If this were extended beyond the MVP:
+
+- Add authentication & user accounts
+- Persist shipment history
+- Support multiple carriers (UPS, FedEx)
+- Add insurance & signature options
+- Improve address autocomplete (USPS / Google Places)
+- Add E2E tests (Playwright)
+- Improve accessibility audits
+- Add server-side caching for rates
+
+## 📝 License
+
+This project is under the MIT license. See the <a href="https://github.com/gbspecapedra/shipflow/blob/main/LICENSE" rel="nofollow">LICENSE</a> for more information.
+
+---
+
+<p align="center">Made with ♥ by Gisele Pecapedra 👋 <a href="https://www.linkedin.com/in/giselepecapedra/" rel="nofollow">Get in touch!</a></p>
